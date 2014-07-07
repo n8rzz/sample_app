@@ -5,7 +5,7 @@ Spork.prefork do
   ENV["RAILS_ENV"] ||= 'test'
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
-  require 'rspec/autorun'
+#  require 'rspec/autorun'
 
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.
@@ -17,6 +17,9 @@ Spork.prefork do
 
 
 RSpec.configure do |config|
+
+  config.include Rails.application.routes.url_helpers
+
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
