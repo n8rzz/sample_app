@@ -3,6 +3,7 @@ require 'spec_helper'
 describe User do 
 	before { @user = User.new(name: "Example User", email: "user@example.com", password: "foobar", password_confirmation: "foobar") }
 
+
 	subject { @user }
 
 	it { should respond_to(:name) }
@@ -65,7 +66,7 @@ describe User do
 
 		it "should be saved as all lower-case" do 
 			@user.email = mixed_case_email
-			@useer.save
+			@user.save
 			expect(@user.reload.email).to eq mixed_case_email.downcase
 		end
 	end #email with mixed case
@@ -91,11 +92,11 @@ describe User do
 		end #with valid password
 		
 		describe "with invalid password" do
-		  let(:user_for_invalid_password) { found_user.authenticate("invalid") }
+#		  let(:user_for_invalid_password) { found_user.authenticate("invalid") }
 
-		  it { should_not eq user_for_invalid_password }
-		  specify { expect(user_for_invalid_password).to be_false }
+#		  it { should_not eq user_for_invalid_password }
+#		  specify { expect(user_for_invalid_password).to be_false }
 	    end #with invalid password
- 
 	end #return value authenticated method
+
 end #user
