@@ -103,8 +103,9 @@ describe User do
 	    end #with invalid password
 	end #return value authenticated method
 
-#	describe "remember token" do 
-#		before { @user.save }
+	describe "remember token" do
+		before { @user.save }
+		it { expect(@user.remember_token).not_to be_blank }
 #		its(:remember_token) { should_not be_blank }
-#	end # remember token
+	end # remember token
 end #user
