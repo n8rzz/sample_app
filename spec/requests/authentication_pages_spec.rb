@@ -84,6 +84,18 @@ describe "Authentication", type: :request do
           it { should have_title('Sign in') }
         end # visit user index
       end # in users controller
+
+      describe "in the Microposts controller" do 
+        describe "submitting to the create action" do 
+          before { post microposts_path }
+          specify { expect(response).to redirect_to(signin_path) }
+        end # submitting to create action
+
+        describe "submitting to the destroy action" do 
+          before { delete micropost_path(FactoryGirl.create(:micropost)) }
+          specify { expect(response).to redirect_to(signin_path) } 
+        end # submitting to destroy action
+      end # in microposts controller
     end # for non signed in users
 
      describe "as non-admin user" do
