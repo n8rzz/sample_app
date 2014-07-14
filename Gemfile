@@ -18,6 +18,7 @@ group :development, :test do
   gem 'guard-spork', '1.5.0'
   gem 'childprocess', '0.3.6'
   gem 'factory_girl_rails', '4.2.0'
+  gem 'therubyracer'
 end
 
 group :test do
